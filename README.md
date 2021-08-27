@@ -55,6 +55,11 @@ example code: Order.protype.addPizza(Pizza)
 expected outcome
  order.pizzas = {pizza}
 
+ test #2:: assigns id to pizzas added to order
+ example code order.prototype.addPIzza (pizza)
+ expected outcome
+ order.pizzas = {pizza{pizza.id = 1}}
+
 describe Order.prototype.assignID
 
 test #1: id counter increments by one

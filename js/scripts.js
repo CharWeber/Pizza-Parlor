@@ -12,7 +12,8 @@ Order.prototype.assignId = function(){
 }
 
 Order.prototype.addPizza = function(pizza){
-this.pizzas = pizza
+  pizza.id = this.assignId();
+  this.pizzas[pizza.id] = pizza
 }
 
 
@@ -22,3 +23,6 @@ function Pizza(){
   this.toppings = {}
   this.price = 0
 }
+
+let order1 = new Order
+let pizza1 = new Pizza
