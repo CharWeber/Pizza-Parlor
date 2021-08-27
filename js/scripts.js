@@ -60,42 +60,97 @@ Order.prototype.PriceCalc = function (OrderToSearch) {
 
 
 // pizza Logic
-function Pizza() {
-  this.size = "small"
-  this.crust = "butter"
-  this.sauce = "red"
+function Pizza(size, crust, sauce) {
+  this.size = size
+  this.crust = crust
+  this.sauce = sauce
   this.toppings = {}
-  this.price = 5.00
+  this.price = 0.00
   this.currentId = 0
 }
 
-Pizza.prototype.assignId = function(){
+Pizza.prototype.assignId = function () {
   this.currentId += 1;
   return this.currentId
 }
 
-Pizza.prototype.addTopping = function(top){
+Pizza.prototype.addTopping = function (top) {
   top.id = this.assignId();
   this.toppings[top.id] = top;
   console.log(this.toppings);
 };
 
-pizza.prototype.findTopping = function(id){
-  
+Pizza.prototype.findTopping = function (id) {
+  if (this.toppings[id] != undefined) {
+    return this.toppings[id]
+  }
+  return false
 }
 
-Pizza.prototype.deleteTopping = function(){
-
+Pizza.prototype.deleteTopping = function (id) {
+  if (this.toppings[id] === undefined) {
+    return false
+  }
+  else {
+    delete this.toppings[id]
+    return true
+  }
 };
 
-Pizza.prototype.priceCalc = function(){
+Pizza.prototype.PriceCalc = function (PizzaToSearch) {
+  // calculating size price
+  if (this.size === "small") {
+    this.price += 5;
 
+  }
+  else if (this.size === "med") {
+    this.price += 8;
+
+  }
+  else if (this.size === "large") {
+    this.price += 12
+
+  }
+  else {
+    return false
+  }
+  // calculating crust price
+  if (this.crust === "butter") {
+    this.price += 0
+  }
+  else if (this.crust === "garlic") {
+    this.price += 1
+  }
+  else if (this.crust === "cheese") {
+    this.price += 1
+  }
+  else {
+    this.price += 2
+  }
+  // calculating toppings price
+  if (this.toppings === undefined) {
+    return false
+  }
+  else {
+    let tempPrice = []
+    Object.keys(PizzaToSearch.toppings).forEach(function (key) {
+      if (PizzaToSearch != undefined) {
+        let toppings = PizzaToSearch.findTopping(key)
+        tempPrice.push(toppings.price);
+      }
+    })
+    const sum = tempPrice.reduce((accumulator, currentvalue) => {
+      return accumulator + currentvalue;
+    }, 0);
+    this.price += sum
+  }
+  console.log(this.price)
 };
 
 //toppings logic
 
-function Top(topping, price) {
-  this.name = topping;
+function Topping(topping, price) {
+  this.toppings = topping;
   this.price = price;
 }
 
@@ -106,25 +161,28 @@ function Top(topping, price) {
 
 // topping generation
 
-let pepperoni = new Top("pepperoni", 0.5);
-let salami = new Top("salami", 0.5);
-let chicken = new Top("chicken", 2);
-let bacon = new Top("bacon", 0.5);
+let pepperoni = new Topping("pepperoni", 0.5);
+let salami = new Topping("salami", 0.5);
+let chicken = new Topping("chicken", 2);
+let bacon = new Topping("bacon", 0.5);
 
-let gPeppers = new Top("Green Peppers", 0.5);
-let onion = new Top("onion", 0.5);
-let garlic = new Top("garlic", 0.5);
-let mushrooms = new Top("mushrooms", 0.5);
-let anchovies = new Top("anchovies", 0.5);
+let gPeppers = new Topping("Green Peppers", 0.5);
+let onion = new Topping("onion", 0.5);
+let garlic = new Topping("garlic", 0.5);
+let mushrooms = new Topping("mushrooms", 0.5);
+let anchovies = new Topping("anchovies", 0.5);
 
-let exCheese = new Top("Extra Cheese", 1.00)
-let noCheese = new Top("No Cheese", -1)
-let fourCheese = new Top("four Cheese Blend", 1.00)
+let exCheese = new Topping("Extra Cheese", 1.00)
+let noCheese = new Topping("No Cheese", -1)
+let fourCheese = new Topping("four Cheese Blend", 1.00)
 
 
 
 
 
 let order1 = new Order
-let pizza1 = new Pizza
+let pizza1 = new Pizza("small", "butter", "red")
 order1.addPizza(pizza1);
+pizza1.addTopping(pepperoni);
+pizza1.addTopping(salami);
+pizza1.addTopping(gPeppers);

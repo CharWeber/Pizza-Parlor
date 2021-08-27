@@ -85,7 +85,7 @@ expected outcome: return pizza[1]
 
 describe order.prototype.priceCalc
 
-test #1: finds sum of pizza prices and adds tax
+test #1: finds sum of pizza toppingprices and adds tax
 examplecode: order.priceCalc
 expected outcome: 
 price = price of pizzas before tax
@@ -121,6 +121,22 @@ expected outcome:  pizza{
   ...
 }
 
+describe Pizza.prototype.findTopping
+
+test#1: finds toppings within pizza object
+examplecode. pizza.findToppings(id)
+expected output:
+this.top[id]
+
+descibe pizza.prototype.priceCalc
+
+test #1: finds price of pizza
+example code: pizza.priceCalc(pizza)
+expected output: sume of topping prices a
+
+test #2: finds price of pizza with toppings and sizing and crust
+example code: pizza.priceCalc(pizza)
+expected outcome: toppings price plus size & crust price
 
 
 describe Top(topping, price)
