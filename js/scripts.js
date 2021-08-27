@@ -179,14 +179,54 @@ let fourCheese = new Topping("four Cheese Blend", 1.00)
 
 
 
+let newOrder = new Order;
+
+// let order1 = new Order
+// let pizza1 = new Pizza("small", "butter", "red")
+// let pizza2 = new Pizza("med", "garlic", "red")
+
+// order1.addPizza(pizza1);
+// order1.addPizza(pizza2);
+// pizza1.addTopping(pepperoni);
+// pizza1.addTopping(salami);
+// pizza1.addTopping(gPeppers);
 
 
-let order1 = new Order
-let pizza1 = new Pizza("small", "butter", "red")
-let pizza2 = new Pizza("med", "garlic", "red")
+// .toLocaleString('en-US', {
+//   style: 'currency',
+//   currency: 'USD',
+// });
 
-order1.addPizza(pizza1);
-order1.addPizza(pizza2);
-pizza1.addTopping(pepperoni);
-pizza1.addTopping(salami);
-pizza1.addTopping(gPeppers);
+$(document).ready(function(event){
+  event.preventDefault();
+
+  $("button#pizzaCreate").click(function(){
+    let size = $("input[name='size']:checked").val();
+    let crust = $("input[name='crust']:checked").val();
+    let sauce = $("input[name='crust']:checked").val();
+
+    let newPizza = new Pizza(size, crust, sauce)
+    newOrder.addPizza(newPizza)
+
+    $("#pizza-creator").addClass("hidden")
+    $("#topping-creator").removeClass("hidden")
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})

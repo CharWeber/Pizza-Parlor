@@ -8,6 +8,76 @@
   <title>Pizza</title>
 </head>
 <body>
+  <div class="container">
+    <div class="card" id="pizza-creator">
+      <h3>Lets Start your Pizza!</h3>
+      <hr>
+      <h4>What size?</h4>
+      <label for="small"><input name="size" type="radio" id="small" value="small" checked>  Small!</label>
+      <label for="medium"><input name="size" type="radio" id="medium" value="med">  Medium!</label>
+      <label for="large"><input name="size" type="radio" id="large" value="large"> Large!</label>
+      <hr>
+      <h4>What type of crust!</h4>
+      <label for="butter"><input name="crust" type="radio" id="butter" value="butter" checked> Our signature buttery crust!</label>
+      <label for="garlic"><input name="crust" type="radio" id="garlic" value="garlic"> the Fan-Favorite Garlic Crust!</label>
+      <label for="cheese"><input name="crust" type="radio" id="cheese" value="cheese"> Extra cheese on the crust!</label>
+      <label for="stuffed"><input name="crust" type="radio" id="stuffed" value="stuffed"> Stuffed crust (don't ask what its stuffed with) ;D </label>
+      <hr>
+      <h4> What kind of sauce?</h4>
+      <label for="red"><input name="sauce" type="radio" id="red" value= "red" checked> Classic Tomato Sauce!</label>
+      <p>more sauces coming soon!</p>
+      <hr>
+      <label for="pizzaCreate"> Feeling good?</label>
+      <button id="pizzaCreate" for="pizzaCreate" type="button" class="btn btn-primary">lets get cooking!</button>
+    </div>
+    <div class="card hidden" id="topping-creator">
+      <div id="meats">
+        <h4>Add a Protien!</h4>
+        <label for="pepperoni">Pepperoni! </label>
+        <button id="pep" for="pepperoni" type="button" class="btn btn-danger">Add to Pizza!</button>
+        <br>
+        <label for="salami">Salami! </label>
+        <button id="sal" for="salami" type="button" class="btn btn-danger">Add to Pizza!</button>
+        <br>
+        <label for="chicken"> Roasted Chicken!</label>
+        <button id="chicken" for="chicken" type="button" class="btn btn-danger">Add to Pizza!</button>
+        <br>
+        <label for="bacon"> Bacon!</label>
+        <button id="bacon" for="bacon" type="button" class="btn btn-danger">Add to Pizza!</button>
+      </div>
+      <div id="veggies">
+        <h4>Add some veggies!</h4>
+        <div class="row">
+          <div class="col-6">
+            <label for="gPepper"> Green Pepper!</label>
+            <button id="gPepper" for="gPepper" type="button" class="btn btn-success">Add to Pizza!</button>
+            <br>
+            <label for="onion"> Onion!</label>
+            <button id="onion" for="onion" type="button" class="btn btn-success">Add to Pizza!</button>
+          </div>
+          <div class="col-6">
+            <label for="garlic"> Garlic!</label>
+            <button id="garlic" for="garlic" type="button" class="btn btn-success">Add to Pizza!</button>
+            <br>
+            <label for="mushrooms"> Mushrooms!</label>
+            <button id="mushrooms" for="mushrooms" type="button" class="btn btn-success">Add to Pizza!</button>
+            <br>
+            <label for="anchovies"> Anchovies!</label>
+            <button id="anchovies" for="anchovies" type="button" class="btn btn-success">Add to Pizza!</button>
+          </div>
+        </div>
+      </div>
+      <div class="final-order hidden">
+        <div class="card">
+          <h3>your order has been confirmed!</h3>
+          <div class="displayPizza">
+
+          </div>
+          <h4>It will be ready to pick up....sometime</h4>
+        </div>
+      </div>
+    </div>
+  </div>
   
 </body>
 </html>
