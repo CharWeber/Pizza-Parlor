@@ -40,10 +40,20 @@ _{Add your contact information here.}_
 
 ## tests/specs
 
-Descibe Order{}
+Descibe Order()
 
 test: creates order with properties of pizzas, price, and pizza ID counter
-example code: Let newpizza = new Order()
+example code: Let newOrder = new Order()
   pizzas = {}
   total price = 0.00
   pizza ID = 0
+
+
+describe Pizza()
+
+test: creates Pizza object with properties of size, crust, toppings and price
+example code: let newpizza = new Pizza()
+  size: "small"
+  crust = "butter"
+  toppings = {}
+  price = 0
