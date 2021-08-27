@@ -27,27 +27,31 @@ Order.prototype.deletePizza = function(id) {
     return true
   };
 };
+
 Order.prototype.findPizza = function(id){
   if (this.pizzas[id] != undefined){
     return this.pizzas[id]
   }
-  else{
+    return false
+}
+
+
+Order.prototype.PriceCalc =  function(OrderToSearch){
+  if (OrderToSearch.pizzas === undefined){
     return false
   }
-}
-// Order.prototype.priceCalc = function(){
-//   if (this.pizzas === undefined){
-//     return false
-//   }
-//   else{
-//     Object.keys(orderToSearch.pizzas).forEach(function(key){
-//       const pizza = ordertoSearch.pizzas[key]
-
-//       console.log(OrdertoSearch.pizzas)
-//       console.log(this.totalprice)
-//     })
-//   }
-// };
+  else{
+    let newPrice = 0
+    Object.keys(OrderToSearch.pizzas).forEach(function(key){
+      if (OrderToSearch != undefined){
+      let pizza = OrderToSearch.findPizza(key)
+      let tempPrice = pizza.price 
+      let newPrice = tempPrice + newPrice
+      console.log(newPrice)
+      }
+    })
+  }
+};
 
 function Pizza(){
   this.size = "small"
@@ -59,3 +63,8 @@ function Pizza(){
 
 let order1 = new Order
 let pizza1 = new Pizza
+let pizza2 = new Pizza
+let pizza3 = new Pizza
+order1.addPizza(pizza1);
+order1.addPizza(pizza2);
+order1.addPizza(pizza3);
