@@ -90,11 +90,17 @@ examplecode: order.priceCalc
 expected outcome: 
 price = price of pizzas before tax
 total price = price + tax
+
 describe Pizza()
 
 test: creates Pizza object with properties of size, crust, toppings and price
 example code: let newpizza = new Pizza()
   size: "small"
   crust = "butter"
+  sauce = "red"
   toppings = {}
   price = 0
+
+  describe Top(topping, price)
+
+  test: create topping object with 
