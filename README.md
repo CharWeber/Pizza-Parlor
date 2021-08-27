@@ -77,6 +77,19 @@ test #1: id counter increments by one
 example code: order.assignID
 expected outcome: order.currentId += 1
 
+describe order.prototype.findPizza
+
+test #1 : searches order list for pizzas
+examplecode: order.findPizza(1)
+expected outcome: return pizza[1]
+
+describe order.prototype.priceCalc
+
+test #1: finds sum of pizza prices and adds tax
+examplecode: order.priceCalc
+expected outcome: 
+price = price of pizzas before tax
+total price = price + tax
 describe Pizza()
 
 test: creates Pizza object with properties of size, crust, toppings and price
