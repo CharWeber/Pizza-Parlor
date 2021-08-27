@@ -153,6 +153,7 @@ Pizza.prototype.priceCalc = function (pizzaToSearch) {
 
 function Topping(topping, price) {
   this.toppings = topping;
+  this.price = price
 }
 
 
@@ -181,6 +182,15 @@ let fourCheese = new Topping("four Cheese Blend", 1.00)
 
 let newOrder = new Order;
 
+function displayPizzaDropdown(newOrder) {
+  let pizzadrop = $("select#pizzaList");
+  let htmlForContactInfo = "";
+  Object.keys(newOrder.pizzas).forEach(function(key) {
+    const pizza = newOrder.findPizza(key);
+    htmlForContactInfo += "<option value=" + pizza.id + ">Your ZA </option>";
+  });
+  pizzadrop.html(htmlForContactInfo);
+}
 // let order1 = new Order
 // let pizza1 = new Pizza("small", "butter", "red")
 // let pizza2 = new Pizza("med", "garlic", "red")
@@ -209,13 +219,18 @@ $(document).ready(function(event){
 
     $("#pizza-creator").addClass("hidden")
     $("#topping-creator").removeClass("hidden")
+    $("#pizzadrop").removeClass("hidden")
     newOrder.priceCalc(newOrder);
-    return newPizza
+    displayPizzaDropdown(newOrder);
   });
 
   $("button#pep").click(function(){
-    newPizza.addTopping(pepperoni)
-    console.log(newPizza)
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(pepperoni);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
   })
 
 
