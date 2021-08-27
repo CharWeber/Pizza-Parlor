@@ -50,14 +50,14 @@ example code: Let newOrder = new Order()
 
 describe Order.prototype.addPizza
 
-test: adds pizza to order
+test #1 : adds pizza to order
 example code: Order.protype.addPizza(Pizza)
 expected outcome
  order.pizzas = {pizza}
 
 describe Order.prototype.assignID
 
-test: id counter increments by one
+test #1: id counter increments by one
 example code: order.assignID
 expected outcome: order.currentId += 1
 

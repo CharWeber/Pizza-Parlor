@@ -12,7 +12,7 @@ Order.prototype.assignId = function(){
 }
 
 Order.prototype.addPizza = function(pizza){
-
+this.pizzas = pizza
 }
 
 
