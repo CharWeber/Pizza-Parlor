@@ -231,7 +231,71 @@ $(document).ready(function(event){
     pizza.priceCalc(pizza);
     newOrder.priceCalc(newOrder);
     console.log(pizza)
+  });
+  $("button#sal").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(salami);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
+  $("button#chicken").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(chicken);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
+  $("button#bacon").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(bacon);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
+  $("button#gPepper").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(gPeppers);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
+  $("button#onion").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(onion);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
+  $("button#garlic").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(garlic);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
   })
+  $("button#mushrooms").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(mushrooms);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
+  $("button#anchovies").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.addTopping(anchovies);
+    pizza.priceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    console.log(pizza)
+  });
 
 
 
