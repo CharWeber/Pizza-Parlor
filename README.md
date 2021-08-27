@@ -1,42 +1,42 @@
-# _{Application Name}_
+# _Pizza Parlor_
 
-#### _{Brief description of application}_
+#### _A website to create and order custom pizzas_
 
-#### By _**{List of contributors}**_
+#### By _**Charle T Weber**_
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _HTML_
+* _CSS_
+* _javascript_
+* _jquery libraries_
+* _bootstrap libraries_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_{Welcome to the pizza place, we can create and set up a pizza order for you. THis website is designed to take user input to create a pizza order. Firstly you choose size, crust, and sauce. second: you choose what toppings you wish to add to your pizza, finally you confirm your order and see your displayed order}_
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* _clone this github repository to desired directory_ https://github.com/CharWeber/Pizza-Parlor
+* _open index.html with any web browser_
+* _interact as desired with open webpage_
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _when adding toppings, the price of the crust, sauce, and size are compounded again when the customer should only pay once_
+* _no show order button to display the final order_
+* _results have no where to display just yet_
+
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+MIT CHARLIE 2021
 
 ## Contact Information
 
-_{Add your contact information here.}_
+_charlestweber@gmail.com_
 
 ## tests/specs
 
