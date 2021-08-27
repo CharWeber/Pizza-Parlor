@@ -101,6 +101,30 @@ example code: let newpizza = new Pizza()
   toppings = {}
   price = 0
 
-  describe Top(topping, price)
+describe Pizza.prototype.assignId
 
-  test: create topping object with 
+test: Assigns Id to additional topings
+example code: pizza.addTopping(pepperoni)
+expected outcome: pizza{
+  ...
+  toppings: {1: pepperoni, 0.5}
+  ...
+}
+
+describe Pizza.prototype.addTopping
+
+test: adds topping to pizza
+examplecode: pizza.addTopping(pepperoni)
+expected outcome:  pizza{
+  ...
+  toppings: {1: pepperoni, 0.5}
+  ...
+}
+
+
+
+describe Top(topping, price)
+
+test: create topping object with constructor
+example code: let pepperoni = new Top("pepperoni", 0.5);
+expected outcome: Top {topping: "pepperoni", price: 0.5}

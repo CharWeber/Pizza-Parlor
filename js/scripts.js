@@ -9,7 +9,7 @@ function Order() {
 }
 
 Order.prototype.assignId = function () {
-  this.currentId = this.currentId += 1;
+  this.currentId += 1;
   return this.currentId;
 };
 
@@ -64,18 +64,25 @@ function Pizza() {
   this.size = "small"
   this.crust = "butter"
   this.sauce = "red"
-  this.toppings = []
+  this.toppings = {}
   this.price = 5.00
   this.currentId = 0
 }
 
 Pizza.prototype.assignId = function(){
-  
+  this.currentId += 1;
+  return this.currentId
 }
 
-Pizza.prototype.addTopping = function(){
-
+Pizza.prototype.addTopping = function(top){
+  top.id = this.assignId();
+  this.toppings[top.id] = top;
+  console.log(this.toppings);
 };
+
+pizza.prototype.findTopping = function(id){
+  
+}
 
 Pizza.prototype.deleteTopping = function(){
 
@@ -88,19 +95,33 @@ Pizza.prototype.priceCalc = function(){
 //toppings logic
 
 function Top(topping, price) {
-  this.topping = topping;
+  this.name = topping;
   this.price = price;
 }
 
 
 
 // USER INTERFACE LOGIC
+
+
 // topping generation
 
 let pepperoni = new Top("pepperoni", 0.5);
 let salami = new Top("salami", 0.5);
 let chicken = new Top("chicken", 2);
 let bacon = new Top("bacon", 0.5);
+
+let gPeppers = new Top("Green Peppers", 0.5);
+let onion = new Top("onion", 0.5);
+let garlic = new Top("garlic", 0.5);
+let mushrooms = new Top("mushrooms", 0.5);
+let anchovies = new Top("anchovies", 0.5);
+
+let exCheese = new Top("Extra Cheese", 1.00)
+let noCheese = new Top("No Cheese", -1)
+let fourCheese = new Top("four Cheese Blend", 1.00)
+
+
 
 
 
