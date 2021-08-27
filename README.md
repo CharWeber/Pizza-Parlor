@@ -48,6 +48,18 @@ example code: Let newOrder = new Order()
   total price = 0.00
   pizza ID = 0
 
+describe Order.prototype.addPizza
+
+test: adds pizza to order
+example code: Order.protype.addPizza(Pizza)
+expected outcome
+ order.pizzas = {pizza}
+
+describe Order.prototype.assignID
+
+test: id counter increments by one
+example code: order.assignID
+expected outcome: order.currentId += 1
 
 describe Pizza()
 
