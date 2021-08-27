@@ -93,7 +93,7 @@ total price = price + tax
 
 describe Pizza()
 
-test: creates Pizza object with properties of size, crust, toppings and price
+test #1: creates Pizza object with properties of size, crust, toppings and price
 example code: let newpizza = new Pizza()
   size: "small"
   crust = "butter"
@@ -103,7 +103,7 @@ example code: let newpizza = new Pizza()
 
 describe Pizza.prototype.assignId
 
-test: Assigns Id to additional topings
+test #1: Assigns Id to additional topings
 example code: pizza.addTopping(pepperoni)
 expected outcome: pizza{
   ...
@@ -113,7 +113,7 @@ expected outcome: pizza{
 
 describe Pizza.prototype.addTopping
 
-test: adds topping to pizza
+test#1: adds topping to pizza
 examplecode: pizza.addTopping(pepperoni)
 expected outcome:  pizza{
   ...
@@ -141,6 +141,6 @@ expected outcome: toppings price plus size & crust price
 
 describe Top(topping, price)
 
-test: create topping object with constructor
+test #1: create topping object with constructor
 example code: let pepperoni = new Top("pepperoni", 0.5);
 expected outcome: Top {topping: "pepperoni", price: 0.5}

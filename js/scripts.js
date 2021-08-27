@@ -15,6 +15,7 @@ Order.prototype.assignId = function () {
 
 Order.prototype.addPizza = function (pizza) {
   pizza.id = this.assignId();
+  pizza.priceCalc(pizza);
   this.pizzas[pizza.id] = pizza
   console.log(this.pizzas);
 };
@@ -37,7 +38,7 @@ Order.prototype.findPizza = function (id) {
 }
 
 
-Order.prototype.PriceCalc = function (OrderToSearch) {
+Order.prototype.priceCalc = function (OrderToSearch) {
   if (this.pizzas === undefined) {
     return false
   }
@@ -97,7 +98,7 @@ Pizza.prototype.deleteTopping = function (id) {
   }
 };
 
-Pizza.prototype.PriceCalc = function (PizzaToSearch) {
+Pizza.prototype.priceCalc = function (pizzaToSearch) {
   // calculating size price
   if (this.size === "small") {
     this.price += 5;
@@ -133,9 +134,9 @@ Pizza.prototype.PriceCalc = function (PizzaToSearch) {
   }
   else {
     let tempPrice = []
-    Object.keys(PizzaToSearch.toppings).forEach(function (key) {
-      if (PizzaToSearch != undefined) {
-        let toppings = PizzaToSearch.findTopping(key)
+    Object.keys(pizzaToSearch.toppings).forEach(function (key) {
+      if (pizzaToSearch != undefined) {
+        let toppings = pizzaToSearch.findTopping(key)
         tempPrice.push(toppings.price);
       }
     })
@@ -182,7 +183,10 @@ let fourCheese = new Topping("four Cheese Blend", 1.00)
 
 let order1 = new Order
 let pizza1 = new Pizza("small", "butter", "red")
+let pizza2 = new Pizza("med", "garlic", "red")
+
 order1.addPizza(pizza1);
+order1.addPizza(pizza2);
 pizza1.addTopping(pepperoni);
 pizza1.addTopping(salami);
 pizza1.addTopping(gPeppers);
