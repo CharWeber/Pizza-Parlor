@@ -41,16 +41,20 @@ Order.prototype.PriceCalc =  function(OrderToSearch){
     return false
   }
   else{
-    let newPrice = 0
+    let tempPrice =[]
     Object.keys(OrderToSearch.pizzas).forEach(function(key){
       if (OrderToSearch != undefined){
       let pizza = OrderToSearch.findPizza(key)
-      let tempPrice = pizza.price 
-      let newPrice = tempPrice + newPrice
-      console.log(newPrice)
+      tempPrice.push(pizza.price);
       }
     })
+    const sum = tempPrice.reduce((accumulator, currentvalue) => {
+      return accumulator + currentvalue;
+    }, 0);
+    this.price = sum
+    this.totalPrice = Math.round((sum * 1.08)* 100)/100
   }
+  console.log(this.price)
 };
 
 function Pizza(){
