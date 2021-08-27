@@ -17,6 +17,7 @@ Order.prototype.addPizza = function (pizza) {
   pizza.id = this.assignId();
   pizza.priceCalc(pizza);
   this.pizzas[pizza.id] = pizza
+  this.priceCalc(this)
   console.log(this.pizzas);
 };
 
@@ -152,7 +153,6 @@ Pizza.prototype.priceCalc = function (pizzaToSearch) {
 
 function Topping(topping, price) {
   this.toppings = topping;
-  this.price = price;
 }
 
 
@@ -198,8 +198,7 @@ let newOrder = new Order;
 // });
 
 $(document).ready(function(event){
-  event.preventDefault();
-
+  
   $("button#pizzaCreate").click(function(){
     let size = $("input[name='size']:checked").val();
     let crust = $("input[name='crust']:checked").val();
@@ -210,6 +209,13 @@ $(document).ready(function(event){
 
     $("#pizza-creator").addClass("hidden")
     $("#topping-creator").removeClass("hidden")
+    newOrder.priceCalc(newOrder);
+    return newPizza
+  });
+
+  $("button#pep").click(function(){
+    newPizza.addTopping(pepperoni)
+    console.log(newPizza)
   })
 
 
