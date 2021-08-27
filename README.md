@@ -37,3 +37,13 @@ _{Let people know what to do if they run into any issues or have questions, idea
 ## Contact Information
 
 _{Add your contact information here.}_
+
+## tests/specs
+
+Descibe Order{}
+
+test: creates order with properties of pizzas, price, and pizza ID counter
+example code: Let newpizza = new Order()
+  pizzas = {}
+  total price = 0.00
+  pizza ID = 0
