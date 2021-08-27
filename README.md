@@ -60,6 +60,17 @@ expected outcome
  expected outcome
  order.pizzas = {pizza{pizza.id = 1}}
 
+describe Order.prototype.deletePizza
+
+ test #1: deletes pizza from order
+ example: order.deletePizza(id)
+ expected outcome
+  if pizzas.id === undefined
+    return false
+  else
+    delete this.pizzas[id]
+    return true
+
 describe Order.prototype.assignID
 
 test #1: id counter increments by one

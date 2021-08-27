@@ -56,3 +56,32 @@ toppings
 	create toppings
 	premium toppings?
 	veggie/meat toppings?
+
+
+Pricing
+
+	sizes:
+		small = $5.00
+		med = $8.00
+		large = $11.00
+
+	crusts:
+		butter = 0.00
+		garlic = 1.00
+		cheese = 1.00
+		stuffed = 2.00
+	toppings
+		meat:
+			pepperoni = 0.50
+			salami = 0.50
+			chicken = 2.00
+			bacon = 1.00
+		veggies:
+			gPeppers = 0.50
+			onion = 0.50
+			garlic = 0.50
+			mushrooms = 0.50
+			anchovies = 0.50
+		cheese:
+			exCheese = 1.00
+			fourCheese = 3.00

@@ -16,12 +16,22 @@ Order.prototype.addPizza = function(pizza){
   this.pizzas[pizza.id] = pizza
 }
 
+Order.prototype.deletePizza = function(id) {
+  if (this.pizzas[id] === undefined){
+    return false
+  }
+  else{
+    delete this.pizzas[id]
+    return true
+  }
+}
 
 function Pizza(){
   this.size = "small"
   this.crust = "butter"
+  this.sauce = "red"
   this.toppings = {}
-  this.price = 0
+  this.price = 5.00
 }
 
 let order1 = new Order
