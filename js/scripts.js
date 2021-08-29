@@ -15,7 +15,7 @@ Order.prototype.assignId = function () {
 
 Order.prototype.addPizza = function (pizza) {
   pizza.id = this.assignId();
-  pizza.priceCalc(pizza);
+  pizza.doughPriceCalc(pizza);
   this.pizzas[pizza.id] = pizza
   this.priceCalc(this)
   console.log(this.pizzas);
@@ -66,7 +66,9 @@ function Pizza(size, crust, sauce) {
   this.size = size
   this.crust = crust
   this.sauce = sauce
+  this.doughPrice = 0
   this.toppings = {}
+  this.topPrice = 0
   this.price = 0.00
   this.currentId = 0
 }
@@ -99,18 +101,18 @@ Pizza.prototype.deleteTopping = function (id) {
   }
 };
 
-Pizza.prototype.priceCalc = function (pizzaToSearch) {
-  // calculating size price
+Pizza.prototype.doughPriceCalc = function(){
+   // calculating size price
   if (this.size === "small") {
-    this.price += 5;
+    this.doughPrice += 5;
 
   }
   else if (this.size === "med") {
-    this.price += 8;
+    this.doughPrice += 8;
 
   }
   else if (this.size === "large") {
-    this.price += 12
+    this.doughPrice += 12
 
   }
   else {
@@ -118,17 +120,21 @@ Pizza.prototype.priceCalc = function (pizzaToSearch) {
   }
   // calculating crust price
   if (this.crust === "butter") {
-    this.price += 0
+    this.doughPrice += 0
   }
   else if (this.crust === "garlic") {
-    this.price += 1
+    this.doughPrice += 1
   }
   else if (this.crust === "cheese") {
-    this.price += 1
+    this.doughPrice += 1
   }
   else {
-    this.price += 2
+    this.doughPrice += 2
   }
+  this.price = this.doughPrice
+}
+
+Pizza.prototype.topPriceCalc = function (pizzaToSearch) {
   // calculating toppings price
   if (this.toppings === undefined) {
     return false
@@ -144,7 +150,8 @@ Pizza.prototype.priceCalc = function (pizzaToSearch) {
     const sum = tempPrice.reduce((accumulator, currentvalue) => {
       return accumulator + currentvalue;
     }, 0);
-    this.price += sum
+    this.topPrice += sum
+    this.price = this.topPrice + this.doughPrice
   }
   console.log(this.price)
 };
@@ -192,7 +199,7 @@ function displayPizzaDropdown(newOrder) {
   pizzadrop.html(htmlForContactInfo);
 }
 // let order1 = new Order
-// let pizza1 = new Pizza("small", "butter", "red")
+let pizza1 = new Pizza("small", "butter", "red")
 // let pizza2 = new Pizza("med", "garlic", "red")
 
 // order1.addPizza(pizza1);
@@ -212,7 +219,7 @@ $(document).ready(function(event){
   $("button#pizzaCreate").click(function(){
     let size = $("input[name='size']:checked").val();
     let crust = $("input[name='crust']:checked").val();
-    let sauce = $("input[name='crust']:checked").val();
+    let sauce = $("input[name='sauce']:checked").val();
 
     let newPizza = new Pizza(size, crust, sauce)
     newOrder.addPizza(newPizza)
@@ -228,86 +235,83 @@ $(document).ready(function(event){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(pepperoni);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#sal").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(salami);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#chicken").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(chicken);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#bacon").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(bacon);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#gPepper").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(gPeppers);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#onion").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(onion);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#garlic").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(garlic);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   })
   $("button#mushrooms").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(mushrooms);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
   $("button#anchovies").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(anchovies);
-    pizza.priceCalc(pizza);
-    newOrder.priceCalc(newOrder);
+    // pizza.topPriceCalc(pizza);
+    // newOrder.priceCalc(newOrder);
     console.log(pizza)
   });
-
-
-
-
-
-
-
-
-
-
-
-
+  $("button#bake").click(function(){
+    let id = $("#pizzaList option:selected").val();
+    let pizza = newOrder.findPizza(id);
+    pizza.topPriceCalc(pizza);
+    newOrder.priceCalc(newOrder);
+    $("#final-order").removeClass("hidden");
+    $("#veggies").addClass("hidden");
+    $("#meats").addClass("hidden");
+  })
 
 
 
@@ -315,3 +319,11 @@ $(document).ready(function(event){
 
 
 })
+
+
+
+// working notes:
+// display pizza results at end screen
+// create sidebar for live pizza results
+// fix pricecalc functions to only add size, crust, sauce price once 
+// Style with CSS and HTML 
