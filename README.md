@@ -11,6 +11,7 @@
 * _javascript_
 * _jquery libraries_
 * _bootstrap libraries_
+* _google font libraries_
 
 ## Description
 
@@ -25,9 +26,14 @@ _{Welcome to the pizza place, we can create and set up a pizza order for you. TH
 
 ## Known Bugs
 
-* _when adding toppings, the price of the crust, sauce, and size are compounded again when the customer should only pay once_
-* _no show order button to display the final order_
-* _results have no where to display just yet_
+* _No known bugs_
+
+## Stretch Goals
+
+* _more pizza customizability. E.g. remove toppings, adjust size_
+* _live order sidebar with live price calculation_
+* _name and address associated with order_
+* _order numbers so you could theoretically create a cutomer and order database_
 
 
 ## License
@@ -40,115 +46,115 @@ _charlestweber@gmail.com_
 
 ## tests/specs
 
-Descibe Order()
+    Descibe Order()
 
-test: creates order with properties of pizzas, price, and pizza ID counter
-example code: Let newOrder = new Order()
-  pizzas = {}
-  total price = 0.00
-  pizza ID = 0
+    test: creates order with properties of pizzas, price, and pizza ID counter
+    example code: Let newOrder = new Order()
+      pizzas = {}
+      total price = 0.00
+      pizza ID = 0
 
-describe Order.prototype.addPizza
+    describe Order.prototype.addPizza
 
-test #1 : adds pizza to order
-example code: Order.protype.addPizza(Pizza)
-expected outcome
- order.pizzas = {pizza}
+    test #1 : adds pizza to order
+    example code: Order.protype.addPizza(Pizza)
+    expected outcome
+    order.pizzas = {pizza}
 
- test #2:: assigns id to pizzas added to order
- example code order.prototype.addPIzza (pizza)
- expected outcome
- order.pizzas = {pizza{pizza.id = 1}}
+    test #2:: assigns id to pizzas added to order
+    example code order.prototype.addPIzza (pizza)
+    expected outcome
+    order.pizzas = {pizza{pizza.id = 1}}
 
-describe Order.prototype.deletePizza
+    describe Order.prototype.deletePizza
 
- test #1: deletes pizza from order
- example: order.deletePizza(id)
- expected outcome
-  if pizzas.id === undefined
-    return false
-  else
-    delete this.pizzas[id]
-    return true
+    test #1: deletes pizza from order
+    example: order.deletePizza(id)
+    expected outcome
+      if pizzas.id === undefined
+        return false
+      else
+        delete this.pizzas[id]
+        return true
 
-describe Order.prototype.assignID
+    describe Order.prototype.assignID
 
-test #1: id counter increments by one
-example code: order.assignID
-expected outcome: order.currentId += 1
+    test #1: id counter increments by one
+    example code: order.assignID
+    expected outcome: order.currentId += 1
 
-describe order.prototype.findPizza
+    describe order.prototype.findPizza
 
-test #1 : searches order list for pizzas
-examplecode: order.findPizza(1)
-expected outcome: return pizza[1]
+    test #1 : searches order list for pizzas
+    examplecode: order.findPizza(1)
+    expected outcome: return pizza[1]
 
-describe order.prototype.priceCalc
+    describe order.prototype.priceCalc
 
-test #1: finds sum of pizza toppingprices and adds tax
-examplecode: order.priceCalc
-expected outcome: 
-price = price of pizzas before tax
-total price = price + tax
+    test #1: finds sum of pizza toppingprices and adds tax
+    examplecode: order.priceCalc
+    expected outcome: 
+    price = price of pizzas before tax
+    total price = price + tax
 
-describe Pizza()
+    describe Pizza()
 
-test #1: creates Pizza object with properties of size, crust, toppings and price
-example code: let newpizza = new Pizza()
-  size: "small"
-  crust = "butter"
-  sauce = "red"
-  toppings = {}
-  price = 0
+    test #1: creates Pizza object with properties of size, crust, toppings and price
+    example code: let newpizza = new Pizza()
+      size: "small"
+      crust = "butter"
+      sauce = "red"
+      toppings = {}
+      price = 0
 
-describe Pizza.prototype.assignId
+    describe Pizza.prototype.assignId
 
-test #1: Assigns Id to additional topings
-example code: pizza.addTopping(pepperoni)
-expected outcome: pizza{
-  ...
-  toppings: {1: pepperoni, 0.5}
-  ...
-}
+    test #1: Assigns Id to additional topings
+    example code: pizza.addTopping(pepperoni)
+    expected outcome: pizza{
+      ...
+      toppings: {1: pepperoni, 0.5}
+      ...
+    }
 
-describe Pizza.prototype.addTopping
+    describe Pizza.prototype.addTopping
 
-test#1: adds topping to pizza
-examplecode: pizza.addTopping(pepperoni)
-expected outcome:  pizza{
-  ...
-  toppings: {1: pepperoni, 0.5}
-  ...
-}
+    test#1: adds topping to pizza
+    examplecode: pizza.addTopping(pepperoni)
+    expected outcome:  pizza{
+      ...
+      toppings: {1: pepperoni, 0.5}
+      ...
+    }
 
-describe Pizza.prototype.findTopping
+    describe Pizza.prototype.findTopping
 
-test#1: finds toppings within pizza object
-examplecode. pizza.findToppings(id)
-expected output:
-this.top[id]
+    test#1: finds toppings within pizza object
+    examplecode. pizza.findToppings(id)
+    expected output:
+    this.top[id]
 
-descibe pizza.prototype.priceCalc
+    descibe pizza.prototype.priceCalc
 
-test #1: finds price of pizza
-example code: pizza.priceCalc(pizza)
-expected output: sume of topping prices a
+    test #1: finds price of pizza
+    example code: pizza.priceCalc(pizza)
+    expected output: sume of topping prices a
 
-test #2: finds price of pizza with toppings and sizing and crust
-example code: pizza.priceCalc(pizza)
-expected outcome: toppings price plus size & crust price
+    test #2: finds price of pizza with toppings and sizing and crust
+    example code: pizza.priceCalc(pizza)
+    expected outcome: toppings price plus size & crust price
 
 
-describe Top(topping, price)
+    describe Top(topping, price)
 
-test #1: create topping object with constructor
-example code: let pepperoni = new Top("pepperoni", 0.5);
-expected outcome: Top {topping: "pepperoni", price: 0.5}
+    test #1: create topping object with constructor
+    example code: let pepperoni = new Top("pepperoni", 0.5);
+    expected outcome: Top {topping: "pepperoni", price: 0.5}
 
-describe displayToppingDetails(pizzaToDisplay)
+    describe displayToppingDetails(pizzaToDisplay)
 
-test#1: populate topping list as toppings get added to pizza
-example code: pizza w/ pepperoni added
-expected outcome: <ul>
-                  <li> pepperoni
-                  </ul>
+    test#1: populate topping list as toppings get added to pizza
+    example code: pizza w/ pepperoni added
+    expected outcome: <ul>
+                      <li> pepperoni
+                      </ul>
