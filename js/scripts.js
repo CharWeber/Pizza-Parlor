@@ -98,8 +98,8 @@ Pizza.prototype.deleteTopping = function (id) {
   }
 };
 
-Pizza.prototype.doughPriceCalc = function(){
-   // calculating size price
+Pizza.prototype.doughPriceCalc = function () {
+  // calculating size price
   if (this.size === "small") {
     this.doughPrice += 5;
 
@@ -187,7 +187,7 @@ let newOrder = new Order;
 function displayPizzaDropdown(newOrder) {
   let pizzadrop = $("select#pizzaList");
   let htmlForContactInfo = "";
-  Object.keys(newOrder.pizzas).forEach(function(key) {
+  Object.keys(newOrder.pizzas).forEach(function (key) {
     const pizza = newOrder.findPizza(key);
     htmlForContactInfo += "<option value=" + pizza.id + ">Your ZA </option>";
   });
@@ -198,16 +198,16 @@ function displayPizzaDropdown(newOrder) {
 function displaytoppingsDetails(PizzaToDisplay) {
   let toppingsList = $("ul#topList");
   let htmlForToppingInfo = "";
-  Object.keys(PizzaToDisplay.toppings).forEach(function(key) {
+  Object.keys(PizzaToDisplay.toppings).forEach(function (key) {
     const pizza = PizzaToDisplay.findTopping(key);
     htmlForToppingInfo += "<li id=" + pizza.id + ">" + pizza.toppings + "</li>";
   });
   toppingsList.html(htmlForToppingInfo);
 }
 
-$(document).ready(function(event){
-  
-  $("button#pizzaCreate").click(function(){
+$(document).ready(function (event) {
+
+  $("button#pizzaCreate").click(function () {
     let size = $("input[name='size']:checked").val();
     let crust = $("input[name='crust']:checked").val();
     let sauce = $("input[name='sauce']:checked").val();
@@ -222,70 +222,70 @@ $(document).ready(function(event){
     displayPizzaDropdown(newOrder);
   });
 
-  $("button#pep").click(function(){
+  $("button#pep").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(pepperoni);
     displaytoppingsDetails(pizza)
     console.log(pizza)
   });
-  $("button#sal").click(function(){
+  $("button#sal").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(salami);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#chicken").click(function(){
+  $("button#chicken").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(chicken);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#bacon").click(function(){
+  $("button#bacon").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(bacon);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#gPepper").click(function(){
+  $("button#gPepper").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(gPeppers);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#onion").click(function(){
+  $("button#onion").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(onion);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#garlic").click(function(){
+  $("button#garlic").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(garlic);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   })
-  $("button#mushrooms").click(function(){
+  $("button#mushrooms").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(mushrooms);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#anchovies").click(function(){
+  $("button#anchovies").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(anchovies);
     displaytoppingsDetails(pizza);
     console.log(pizza)
   });
-  $("button#bake").click(function(){
+  $("button#bake").click(function () {
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.topPriceCalc(pizza);
