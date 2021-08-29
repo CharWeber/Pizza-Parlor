@@ -9,6 +9,9 @@
 </head>
 <body>
   <div class="container">
+    <div class="jumbotron">
+      <h1>Level-up Pizza!</h1>
+    </div>
     <div class="card" id="pizza-creator">
       <h3>Lets Start your Pizza!</h3>
       <hr>
@@ -70,15 +73,28 @@
             <label for="anchovies"> Anchovies!</label>
             <button id="anchovies" for="anchovies" type="button" class="btn btn-success">Add to Pizza!</button>
           </div>
+          <br>
           <label for="bake">feeling good? Lets get it started!</label>
-          <button id="bake" for="bake" type="button" class="btn btn-success">Bake!</button>
+          <button id="bake" for="bake" type="button" class="btn btn-primary">Bake!</button>
+        </div>
+        <div id="toppingList">
+          <h5>topping list</h5>
+          <ul id="topList"></ul>
         </div>
       </div>
       <div id="final-order" class="hidden">
         <div class="card">
-          <h3>your order has been confirmed!</h3>
+          <h3>Your order has been confirmed!</h3>
           <div class="displayPizza">
-
+            <p>Size: <span id="finalSize"></span></p><br>
+            <p>Crust: <span id="finalCrust"></span></p><br>
+            <p>sauce: <span id="finalSauce"></span></p><br>
+            <div id="toppingList">
+              <p>Toppings</p>
+              <ul id="topList"></ul>
+            </div>
+            <p>Total: <span id="finalPrice"></span></p><br>
+            <p>Subtotal: <span id="priceTax"></span></p>
           </div>
           <h4>It will be ready to pick up....sometime</h4>
         </div>

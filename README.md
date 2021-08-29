@@ -144,3 +144,11 @@ describe Top(topping, price)
 test #1: create topping object with constructor
 example code: let pepperoni = new Top("pepperoni", 0.5);
 expected outcome: Top {topping: "pepperoni", price: 0.5}
+
+describe displayToppingDetails(pizzaToDisplay)
+
+test#1: populate topping list as toppings get added to pizza
+example code: pizza w/ pepperoni added
+expected outcome: <ul>
+                  <li> pepperoni
+                  </ul>

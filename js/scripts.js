@@ -170,20 +170,20 @@ function Topping(topping, price) {
 
 // topping generation
 
-let pepperoni = new Topping("pepperoni", 0.5);
-let salami = new Topping("salami", 0.5);
-let chicken = new Topping("chicken", 2);
-let bacon = new Topping("bacon", 0.5);
+let pepperoni = new Topping("Pepperoni", 0.5);
+let salami = new Topping("Salami", 0.5);
+let chicken = new Topping("Chicken", 2);
+let bacon = new Topping("Bacon", 0.5);
 
 let gPeppers = new Topping("Green Peppers", 0.5);
-let onion = new Topping("onion", 0.5);
-let garlic = new Topping("garlic", 0.5);
-let mushrooms = new Topping("mushrooms", 0.5);
-let anchovies = new Topping("anchovies", 0.5);
+let onion = new Topping("Onion", 0.5);
+let garlic = new Topping("Garlic", 0.5);
+let mushrooms = new Topping("Mushrooms", 0.5);
+let anchovies = new Topping("Anchovies", 0.5);
 
 let exCheese = new Topping("Extra Cheese", 1.00)
 let noCheese = new Topping("No Cheese", -1)
-let fourCheese = new Topping("four Cheese Blend", 1.00)
+let fourCheese = new Topping("Four Cheese Blend", 1.00)
 
 
 
@@ -198,21 +198,17 @@ function displayPizzaDropdown(newOrder) {
   });
   pizzadrop.html(htmlForContactInfo);
 }
-// let order1 = new Order
-let pizza1 = new Pizza("small", "butter", "red")
-// let pizza2 = new Pizza("med", "garlic", "red")
-
-// order1.addPizza(pizza1);
-// order1.addPizza(pizza2);
-// pizza1.addTopping(pepperoni);
-// pizza1.addTopping(salami);
-// pizza1.addTopping(gPeppers);
 
 
-// .toLocaleString('en-US', {
-//   style: 'currency',
-//   currency: 'USD',
-// });
+function displaytoppingsDetails(PizzaToDisplay) {
+  let toppingsList = $("ul#topList");
+  let htmlForToppingInfo = "";
+  Object.keys(PizzaToDisplay.toppings).forEach(function(key) {
+    const pizza = PizzaToDisplay.findTopping(key);
+    htmlForToppingInfo += "<li id=" + pizza.id + ">" + pizza.toppings + "</li>";
+  });
+  toppingsList.html(htmlForToppingInfo);
+}
 
 $(document).ready(function(event){
   
@@ -235,72 +231,63 @@ $(document).ready(function(event){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(pepperoni);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza)
     console.log(pizza)
   });
   $("button#sal").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(salami);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#chicken").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(chicken);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#bacon").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(bacon);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#gPepper").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(gPeppers);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#onion").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(onion);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#garlic").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(garlic);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   })
   $("button#mushrooms").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(mushrooms);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#anchovies").click(function(){
     let id = $("#pizzaList option:selected").val();
     let pizza = newOrder.findPizza(id);
     pizza.addTopping(anchovies);
-    // pizza.topPriceCalc(pizza);
-    // newOrder.priceCalc(newOrder);
+    displaytoppingsDetails(pizza);
     console.log(pizza)
   });
   $("button#bake").click(function(){
@@ -308,6 +295,19 @@ $(document).ready(function(event){
     let pizza = newOrder.findPizza(id);
     pizza.topPriceCalc(pizza);
     newOrder.priceCalc(newOrder);
+    $("span#finalSize").text(pizza.size)
+    $("span#finalCrust").text(pizza.crust)
+    $("span#finalSauce").text(pizza.sauce)
+    let price = newOrder.price.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    $("span#finalPrice").text(price)
+    let taxPrice = newOrder.totalPrice.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    $("span#priceTax").text(taxPrice)
     $("#final-order").removeClass("hidden");
     $("#veggies").addClass("hidden");
     $("#meats").addClass("hidden");
@@ -323,7 +323,5 @@ $(document).ready(function(event){
 
 
 // working notes:
-// display pizza results at end screen
-// create sidebar for live pizza results
-// fix pricecalc functions to only add size, crust, sauce price once 
+// display pizza results at end screen 
 // Style with CSS and HTML 

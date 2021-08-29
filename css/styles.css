@@ -7,3 +7,10 @@
 .card{
   text-align: center;
 }
+ul{
+  text-align: center;
+  list-style-type: none;
+}
+.jumbotron{
+  text-align: center;
+}
