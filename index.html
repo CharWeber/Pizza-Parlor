@@ -5,7 +5,10 @@
 <link href="css/styles.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/scripts.js"></script>
-  <title>Pizza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+  <title>Level-up Pizza</title>
 </head>
 <body>
   <div class="container">
@@ -41,17 +44,22 @@
     <div class="card hidden" id="topping-creator">
       <div id="meats">
         <h4>Add a Protien!</h4>
-        <label for="pepperoni">Pepperoni! </label>
-        <button id="pep" for="pepperoni" type="button" class="btn btn-danger">Add to Pizza!</button>
-        <br>
-        <label for="salami">Salami! </label>
-        <button id="sal" for="salami" type="button" class="btn btn-danger">Add to Pizza!</button>
-        <br>
-        <label for="chicken"> Roasted Chicken!</label>
-        <button id="chicken" for="chicken" type="button" class="btn btn-danger">Add to Pizza!</button>
-        <br>
-        <label for="bacon"> Bacon!</label>
-        <button id="bacon" for="bacon" type="button" class="btn btn-danger">Add to Pizza!</button>
+        <div class="row">
+          <div class="col-6">
+            <label for="pepperoni">Pepperoni! </label>
+            <button id="pep" for="pepperoni" type="button" class="btn btn-danger">Add to Pizza!</button>
+            <br>
+            <label for="salami">Salami! </label>
+            <button id="sal" for="salami" type="button" class="btn btn-danger">Add to Pizza!</button>
+          </div>
+          <div class="col-6">
+            <label for="chicken"> Roasted Chicken!</label>
+            <button id="chicken" for="chicken" type="button" class="btn btn-danger">Add to Pizza!</button>
+            <br>
+            <label for="bacon"> Bacon!</label>
+            <button id="bacon" for="bacon" type="button" class="btn btn-danger">Add to Pizza!</button>
+          </div>
+        </div>
       </div>
       <div id="veggies">
         <h4>Add some veggies!</h4>
@@ -74,6 +82,8 @@
             <button id="anchovies" for="anchovies" type="button" class="btn btn-success">Add to Pizza!</button>
           </div>
           <br>
+        </div>
+        <div class="card">
           <label for="bake">feeling good? Lets get it started!</label>
           <button id="bake" for="bake" type="button" class="btn btn-primary">Bake!</button>
         </div>
@@ -86,13 +96,14 @@
         <div class="card">
           <h3>Your order has been confirmed!</h3>
           <div class="displayPizza">
-            <p>Size: <span id="finalSize"></span></p><br>
-            <p>Crust: <span id="finalCrust"></span></p><br>
-            <p>sauce: <span id="finalSauce"></span></p><br>
+            <p>Size: <span id="finalSize"></span></p>
+            <p>Crust: <span id="finalCrust"></span></p>
+            <p>sauce: <span id="finalSauce"></span></p>
             <div id="toppingList">
               <p>Toppings</p>
               <ul id="topList"></ul>
             </div>
+            <hr>
             <p>Total: <span id="finalPrice"></span></p><br>
             <p>Subtotal: <span id="priceTax"></span></p>
           </div>

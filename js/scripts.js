@@ -18,7 +18,6 @@ Order.prototype.addPizza = function (pizza) {
   pizza.doughPriceCalc(pizza);
   this.pizzas[pizza.id] = pizza
   this.priceCalc(this)
-  console.log(this.pizzas);
 };
 
 Order.prototype.deletePizza = function (id) {
@@ -57,7 +56,6 @@ Order.prototype.priceCalc = function (OrderToSearch) {
     this.price = sum
     this.totalPrice = Math.round((sum * 1.08) * 100) / 100
   }
-  console.log(this.price)
 };
 
 
@@ -81,7 +79,6 @@ Pizza.prototype.assignId = function () {
 Pizza.prototype.addTopping = function (top) {
   top.id = this.assignId();
   this.toppings[top.id] = top;
-  console.log(this.toppings);
 };
 
 Pizza.prototype.findTopping = function (id) {
@@ -135,7 +132,6 @@ Pizza.prototype.doughPriceCalc = function(){
 }
 
 Pizza.prototype.topPriceCalc = function (pizzaToSearch) {
-  // calculating toppings price
   if (this.toppings === undefined) {
     return false
   }
@@ -153,7 +149,6 @@ Pizza.prototype.topPriceCalc = function (pizzaToSearch) {
     this.topPrice += sum
     this.price = this.topPrice + this.doughPrice
   }
-  console.log(this.price)
 };
 
 //toppings logic
@@ -313,15 +308,4 @@ $(document).ready(function(event){
     $("#meats").addClass("hidden");
   })
 
-
-
-
-
-
 })
-
-
-
-// working notes:
-// display pizza results at end screen 
-// Style with CSS and HTML 

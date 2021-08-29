@@ -4,16 +4,18 @@
 .showing{
   display:show;
 }
+body{
+  background-image: url(../img/pizza.jpg);
+  background-repeat:repeat;
+  color:honeydew;
+  font-family: 'Roboto Condensed', sans-serif;
+}
 .card{
-  background-color: rgba(0, 128, 0, 0.204);
+  background-color: rgba(0, 128, 0, 0.635);
   text-align: center;
-  text-shadow:
-  0.025em 0.025em 0 yellow,
-  0.05em 0.05em 0 blue,
-  0.075em 0.075em 0 red,
-  0.1em 0.1em 0 black;
-
-  text-transform: uppercase;
+}
+p{
+  text-align:center;
 }
 ul{
   text-align: center;
@@ -27,6 +29,15 @@ ul{
   0.05em 0.05em 0 blue,
   0.075em 0.075em 0 red,
   0.1em 0.1em 0 black;
-
   text-transform: uppercase;
+  padding:10px;
+  margin:5px;
+}
+h1, h2, h3, h4, h5, h6{
+  text-shadow:
+  0.025em 0.025em 0 yellow,
+  0.05em 0.05em 0 blue,
+  0.075em 0.075em 0 red,
+  0.1em 0.1em 0 black;
+  text-transform: uppercase; 
 }
