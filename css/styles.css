@@ -5,7 +5,15 @@
   display:show;
 }
 .card{
+  background-color: rgba(0, 128, 0, 0.204);
   text-align: center;
+  text-shadow:
+  0.025em 0.025em 0 yellow,
+  0.05em 0.05em 0 blue,
+  0.075em 0.075em 0 red,
+  0.1em 0.1em 0 black;
+
+  text-transform: uppercase;
 }
 ul{
   text-align: center;
@@ -13,4 +21,12 @@ ul{
 }
 .jumbotron{
   text-align: center;
+  background-color: rgb(83, 144, 83);
+  text-shadow:
+  0.025em 0.025em 0 yellow,
+  0.05em 0.05em 0 blue,
+  0.075em 0.075em 0 red,
+  0.1em 0.1em 0 black;
+
+  text-transform: uppercase;
 }
